@@ -37,8 +37,6 @@
 <!-- ABOUT THE PROJECT -->
 ## Assets
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 Added Grold Rounded Font to implus theme
 
 ### Layouts
