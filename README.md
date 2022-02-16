@@ -156,7 +156,6 @@ Added following Page Template added
 * page.custom-about.liquid
 
 ### CssUpdate
-
 Css update in theme.css.liquid
 
 * Add font 
