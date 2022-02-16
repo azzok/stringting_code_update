@@ -159,7 +159,7 @@ Added following Page Template added
 Css update in theme.css.liquid
 
 * Add font 
-   ```css
+```css
    @font-face {
         font-family: "Grold Rounded";
         src: url("GroldRounded-SemiLight.eot");
@@ -265,7 +265,9 @@ Css update in theme.css.liquid
 
 ```
 
+
 * Update other styles
+
 
 ```css
 
