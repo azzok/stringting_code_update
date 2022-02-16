@@ -1,0 +1,184 @@
+<div class="page-width page-slider aos-init aos-animate" data-aos="logo__animation">
+<div class="page-width page-slider">
+  {% if section.settings.title != blank %}
+    <div class="section-header custom-product-carosuel-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+
+  {%- assign collection = collections[section.settings.collection] -%}
+
+  {% case section.settings.grid %}
+    {% when 2 %}
+      {%- assign max_height = 530 -%}
+      {%- assign grid_item_width = 'medium-up--one-half' -%}
+    {% when 3 %}
+      {%- assign max_height = 345 -%}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+    {% when 4 %}
+      {%- assign max_height = 250 -%}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+    {% when 5 %}
+      {%- assign max_height = 195 -%}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+  {% endcase %}
+
+  {%- assign product_limit = 12 -%}
+
+  <ul data-slides="{{section.settings.grid}}"class="grid grid--uniform grid--view-items collection-slider">
+    {% for product in collection.products limit: product_limit %}
+      <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+<!--             <img src="https://cdn.shopify.com/s/files/1/0471/1232/3231/products/string-ting-london-happy-days-wristlet-phone-strap-36402585796830_360x.jpg?v=1640266703" alt="..." /> -->
+ {%- render 'product-grid-item',
+              product: product,
+              collection: collection,
+              per_row: per_row,
+              quick_shop_enable: settings.quick_shop_enable
+            -%}
+    </li>
+    {% else %}
+
+      {% for i in (1..product_limit) %}
+        <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+          <div class="grid-view-item product-card">
+            <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
+              <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
+            </a>
+            <div class="grid-view-item__image-wrapper">
+              {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+              {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+            <div class="h4 grid-view-item__title" aria-hidden="true">{{ 'homepage.onboarding.product_title' | t }}</div>
+            {% include 'product-price' %}
+          </div>
+        </li>
+      {% endfor %}
+    {% endfor %}
+  </ul>
+</div>
+  </div>
+
+<style>
+
+  
+.page-slider {
+    max-width: 1512px !important;
+    margin: 0 auto;
+}
+  
+/*   .slick-list.draggable {
+    margin: 0px -43px;
+} */
+  
+.collection-slider {  
+    padding-right: 20px;
+    overflow: hidden;
+}
+
+.slick-track {
+    display: flex;
+}
+
+.product-card {
+	width: 100%;
+}
+
+.slick-prev {
+    left: 0;
+    z-index: 999;
+}
+
+.slick-next {
+    right: 0;
+    z-index: 999;  
+}
+
+.slick-next.slick-disabled:before, .slick-prev.slick-disabled:before {
+    opacity: .25;
+    color: black;
+}
+
+  .slick-next:before, .slick-prev:before {
+    font-family: slick;
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: #000 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
+  .grid__item.grid-product.small--one-half.medium-up--one-quarter.aos-init.aos-animate {
+    width: 100%;
+}
+  
+  
+
+  
+/*   .grid-product__image-mask {
+    min-height: 300px;
+} */
+  
+  <style>
+
+
+
+
+
+
+{% schema %}
+{
+  "name": {
+    "en": "Product Slider - 1"
+  },
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "en": "Title"
+      },
+      "default": {
+        "en": "Product Slider"
+      }
+    },
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": {
+        "en": "Collection"
+      }
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": {
+        "en": "Products per slide"
+      },
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": {
+        "en": "Show product vendors"
+      },
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+		"en": "Product Slider - 1"
+      },
+      "category": {
+        "en": "Collection"
+      }
+    }
+  ]
+}
+{% endschema %}

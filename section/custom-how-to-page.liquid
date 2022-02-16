@@ -1,0 +1,82 @@
+
+<div id="template-howto-wrap">
+    <div class="container">
+        
+<!--            <div class="section-title how-to-title">
+                
+                    <h2>How-To String Ting</h2>
+                
+                
+                    <p>String Ting is comprised mainly of phone wristlets and cross-body straps that exude optimistic.</p>
+                
+            </div>-->
+              
+      
+		<div class="template-howto-inner">
+          <img src="//cdn.shopify.com/s/files/1/0471/1232/3231/files/howto_1024x768.jpg?v=3380840509597716291" alt="How to">
+        </div>
+      
+    </div>
+</div>
+
+
+<style>
+  .how-to-title h2{
+        text-transform: capitalize !important;
+
+  }
+  .section-title.how-to-whats-new H2 {
+    text-transform: capitalize !important;
+    padding-top: 26px;
+}
+@media all{
+::after,::before{-webkit-box-sizing:inherit;box-sizing:inherit;}
+*{margin:0;padding:0;-webkit-box-sizing:border-box;box-sizing:border-box;font-family:"Grold Rounded", sans-serif;}
+img{max-width:100%;height:auto;vertical-align:middle;border-style:none;-webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;pointer-events:none;}
+.container{width:100%;padding-right:20px;padding-left:20px;margin-right:auto;margin-left:auto;}
+@media (min-width: 576px){
+.container{max-width:540px;}
+}
+@media (min-width: 768px){
+.container{max-width:720px;padding-right:15px;padding-left:15px;}
+}
+@media (min-width: 992px){
+.container{max-width:960px;}
+}
+@media (min-width: 1200px){
+.container{max-width:1140px;}
+}
+@media (min-width: 1430px){
+.container{max-width:1400px;}
+}
+.section-title{margin-bottom:30px;text-align:center;}
+.section-title h2{font-weight:500;font-size:32px;margin-bottom:5px;}
+.section-title p{font-size:19px;font-weight:300;}
+#template-howto-wrap{padding:30px 0;}
+#template-howto-wrap .section-title{max-width:500px;margin:0 auto;margin-bottom:50px;}
+#template-howto-wrap .section-title h2{font-weight:500;font-size:32px;margin-bottom:15px;}
+#template-howto-wrap .template-howto-inner{text-align:center;margin:0 auto;}
+}
+</style>
+
+{% schema %}
+  {
+    "name": "Custom How To",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom How To",
+        "category": "Hura",
+        "settings": {
+
+        }
+      }
+    ]
+  }
+{% endschema %}
